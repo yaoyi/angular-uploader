@@ -31,6 +31,8 @@ panel.html 	upload panel
 <script src="themes/default/panel.js"></script>
 ```
 
+2.add html codes
+
 ```html
 <html ng-app="demo">
   <body ng-controller="DemoCtrl">
@@ -43,6 +45,8 @@ panel.html 	upload panel
   </body>
 </html>
 ```
+
+3.add javascript codes
 
 ```javascript
 var demo = angular.module('demo', ['ui.uploader'])
