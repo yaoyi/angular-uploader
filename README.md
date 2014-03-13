@@ -7,20 +7,17 @@ upload panel for angular.js,  depends on plupload, it is a flexible module, coul
 
 ```
   git clone https://github.com/yaoyi/angular-uploader.git
-  
 ```
 then open index.html to test the default uploader
 
 ### File Structure
 
 index.html
-js/ 
- |-- uploader.js, basic uploader module including uploader service and directive
-theme/
- |-- default/  default upload panel
-        |-- panel.css, upload panel style 
-        |-- panel.js, uploda panel controller
-        |-- panel.html, upload panel 
+js/uploader.js 	basic uploader module including uploader service and directive
+theme/default/  default upload panel
+panel.css 	upload panel style 
+panel.js 	upload panel controller
+panel.html 	upload panel 
 
 ### Basic Setup
 
