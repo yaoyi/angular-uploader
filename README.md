@@ -1,9 +1,97 @@
 angular-uploader
 ================
 
-upload module for angular.js,  depends on plupload
+upload panel for angular.js,  depends on plupload, it is a flexible module, could be easily customized to support different themes of upload panel.
 
+### Demo
 
+```
+  git clone https://github.com/yaoyi/angular-uploader.git
+  
+```
+then open index.html to test the default uploader
+
+### File Structure
+
+index.html
+js/ 
+ |-- uploader.js, basic uploader module including uploader service and directive
+theme/
+ |-- default/  default upload panel
+        |-- panel.css, upload panel style 
+        |-- panel.js, uploda panel controller
+        |-- panel.html, upload panel 
+
+### Basic Setup
+
+1.include files
+
+```javascript
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+<script src="http://cdn.jsdelivr.net/plupload/2.1.1/plupload.full.min.js"></script>
+<script src="js/uploader.js"></script>
+<script src="themes/default/panel.js"></script>
+```
+
+```html
+<html ng-app="demo">
+  <body ng-controller="DemoCtrl">
+    <button id="pickfiles">select files</button>
+    <div pf-uploader 
+    	data-templateurl="themes/default/panel.html"
+    	data-options = "{{options}}"
+    	data-enable="true">
+    </div>
+  </body>
+</html>
+```
+
+```javascript
+var demo = angular.module('demo', ['ui.uploader'])
+demo.controller('DemoCtrl', ['$scope', function($scope){
+  $scope.options = {
+    url : 'your backend upload url',
+    browse_button: 'pickfiles'
+  }
+}])
+```
+
+### Handle Upload Event
+
+handle the upload event in your controller
+
+```javascript
+demo.controller('DemoCtrl', ['$scope','uploader', function($scope, uploader){
+  $scope.photos = []
+  function fileUploaded(up, file, data){
+		var response = $.parseJSON(data.response)
+		var photo = {
+			thumb: "http://hkbuys.qiniudn.com/" + response.key
+		}
+		$scope.photos.push(photo)
+	}
+	uploader.setHandler('FileUploaded', fileUploaded)
+}])
+```
+
+multiple callbacks for same event is supported. 
+
+for example:
+
+- show the panel when files added
+- get the preview when files added
+
+```
+uploader.setHandler('FilesAdded', $scope.triggerPanel)
+uploader.setHandler('FilesAdded', $scope.filesPreview)
+```
+
+or for dynamic upload url, 
+```
+uploader.setHandler('BeforeUpload', beforeUpload)
+```
+then in beforeUpload function, change the up.settings.url
 
 
 ## License
