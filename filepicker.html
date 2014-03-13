@@ -1,0 +1,90 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="demo">
+<head>
+	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+	<meta charset="UTF-8">
+	<title>angular-uploader</title>
+	<link rel="stylesheet" href="themes/filepicker/panel.css">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<style>
+	.drop-zone {
+	    margin: 20px auto;
+	    width: 600px;
+	    height: 400px;
+	    border: 1px dashed grey;
+	    text-align: center;
+	}
+	.drop-zone > b {
+	    position: relative;
+	    top: 200px;
+	    font-size: 30px;
+	    color: #444;
+	}
+	.photo {
+		position: relative;
+		display: inline-block;
+		margin-right: 10px;
+	}
+	.photo img {
+		width: 100px;
+		height: 100px;
+		border: 1px solid #bbb;
+	}
+	</style>
+</head>
+<body>
+	<div ng-controller="DemoCtrl">
+		<div pf-uploader 
+			 data-templateurl="themes/filepicker/panel.html"
+			 data-options = "{{options}}"
+	         data-enable="true">
+	    </div>
+    </div>
+</body>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<!--[if lte IE 8]>
+	<script src="http://bestiejs.github.io/json3/lib/json3.min.js"></script>
+	<![endif]-->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/plupload/2.1.1/plupload.full.min.js"></script>
+	<script src="js/uploader.js"></script>
+	<script src="themes/filepicker/panel.js"></script>
+	<script>
+		var demo = angular.module('demo', ['ui.uploader'])
+		demo.config(['$sceProvider', function($sceProvider) {
+		    	$sceProvider.enabled(false);
+		}]);
+		demo.controller('DemoCtrl', ['$scope','uploader', function($scope, uploader){
+			$scope.photos = []
+			$scope.options = {
+				url : 'http://up.qiniu.com/',
+				browse_button: 'pickfiles',
+				filters: {
+					mime_type: [
+						{ title: "Image files", extensions: "jpg,jpeg" }
+					],
+					max_file_size: '50mb'
+				},
+				multipart_params: {
+					token: "_ttAbVapLhCq533808ffREGDrAb6aKrMhzb72QcK:5l8XVI7sZCKJ1CDdjln_rJhkfL8=:eyJzY29wZSI6ImhrYnV5cyIsImRlYWRsaW5lIjoxMzk0MjAzNDMyfQ=="
+				},
+				drop_element: "drop-zone",
+				resize: {
+		            width : 800,
+		            height : 600,
+		            quality : 90,
+		            crop: true
+		        }
+			}
+			function fileUploaded(up, file, data){
+				var response = $.parseJSON(data.response)
+				var photo = {
+					thumb: "http://hkbuys.qiniudn.com/" + response.key
+				}
+				$scope.photos.push(photo)
+			}
+			uploader.setHandler('FileUploaded', fileUploaded)
+
+		}])
+	</script>
+</html>

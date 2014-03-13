@@ -1,0 +1,142 @@
+#upload-panel {
+  position: fixed;
+  bottom: 0px;
+  right: 30px;
+  width: 500px;
+  height: 300px;
+  margin-bottom: -300px;
+  background: white;
+  z-index: 9999;
+  font-family: sans-serif;
+  font-size: 13px;
+}
+#upload-panel .upload-titlebar {
+  height: 10px;
+  position: relative;
+  padding: 10px;
+  background-color: #4a4a4a;
+  border: 1px solid #4a4a4a;
+  color: white;
+}
+
+#upload-panel .upload-titlebar .close {
+  cursor: pointer;
+  position: relative;
+  font-weight: bold;
+  bottom: 2px;
+}
+
+#upload-panel .upload-titlebar .minimize {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#upload-panel .upload-titlebar .titlebar-title {
+  position: relative;
+  bottom: 3px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+#upload-panel .upload-container {
+  position: relative;
+  border: 1px solid #ccc;
+  min-height: 250px;
+  max-height: 270px;
+  height: 100%;
+  overflow: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+#upload-panel .upload-container .upload-item {
+  position: relative;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+#upload-panel .upload-container .upload-item:hover {
+  background-color: #F7F3CB;
+}
+
+#upload-panel .upload-container  .upload-item .upload-name {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 220px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: 5px;
+  margin-left: 10px;
+}
+
+
+#upload-panel .upload-container  .upload-item .upload-path {
+  display: inline-block;
+  position: relative;
+  bottom: 8px;
+  left: 25px;
+  font-weight: bold;
+}
+
+
+#upload-panel .upload-container  .upload-item .upload-preview {
+  position: relative;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  overflow: hidden;
+  height: 25px;
+  width: 25px;
+}
+#upload-panel .upload-container  .upload-item .progress-bar {
+  position: relative;
+  display: inline-block;
+  float: right;
+  margin-top: 5px;
+  width: 100px;
+}
+#upload-panel progress {
+  position: relative;
+  width: 60%;
+}
+#upload-panel progress::-webkit-progress-bar {
+  background: #cdeb8e;
+  background: -moz-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdeb8e), color-stop(100%, #a5c956));
+  background: -webkit-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background: -o-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background: -ms-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background: linear-gradient(to bottom, #cdeb8e 0%, #a5c956 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 );
+  border-radius: 9px;
+}
+#upload-panel progress::-webkit-progress-value {
+  background: #cdeb8e;
+  background: -moz-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdeb8e), color-stop(100%, #a5c956));
+  background: -webkit-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background: -o-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background: -ms-linear-gradient(top, #cdeb8e 0%, #a5c956 100%);
+  background: linear-gradient(to bottom, #cdeb8e 0%, #a5c956 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 );
+  border-radius: 9px;
+}
+#upload-panel .progress-value {
+  line-height: 20px;
+  margin-left: 5px;
+  font-size: .8em;
+  color: #555;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+
+
+

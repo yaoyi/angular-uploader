@@ -1,0 +1,10 @@
+<div id="uploader">
+	<div ng-controller="UploadCtrl">
+		<a href="{{auth}}" target="_blank">instagram</a>
+		<div ng-repeat="photo in photos" class="photo">
+			<img ng-src="{{photo.thumb}}" alt="">
+			<button ng-click="upload($index)">upload</button>
+		</div>
+	</div>
+	
+</div>
