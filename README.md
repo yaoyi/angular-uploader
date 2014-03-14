@@ -24,6 +24,8 @@ then open index.html to test the default uploader
 1.include files
 
 ```javascript
+<link rel="stylesheet" href="themes/default/panel.css">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
 <script src="http://cdn.jsdelivr.net/plupload/2.1.1/plupload.full.min.js"></script>
