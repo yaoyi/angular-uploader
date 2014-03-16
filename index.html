@@ -39,10 +39,8 @@
 			 data-options = "{{options}}"
 	         data-enable="true">
 	    </div> -->
-	    <div ng-repeat="photo in photos">
-	    	<div class="photo">
-	    		<img ng-src="{{photo.thumb}}" alt="">
-	    	</div>
+	    <div ng-repeat="photo in photos" class="photo" ng-if="photos">
+	    	<img ng-src="{{photo.thumb}}" alt="">
 	    </div>
 		<h2>browse button</h2>
 		<hr>
