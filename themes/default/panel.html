@@ -1,0 +1,24 @@
+<div id="upload-panel">
+	<div ng-controller="UploadCtrl">
+		<div class="upload-titlebar">
+			<i class="fa fa-upload pull-left"></i>
+			<span class="titlebar-title">Upload</span>
+			<span class="close pull-right" ng-click="closePanel()" ng-show="uploading == false">X</span>
+			<i class="fa fa-minus pull-right minimize"></i>
+		</div>
+		<div class="upload-container">
+			<div class="upload-wrapper">
+				<div id="file-{{file.id}}" ng-repeat="file in files" ng-click="onItemClick({item:file})" class="upload-item">
+					<div class="upload-preview"></div>
+					<div class="upload-name" title="{{file.name}}">{{file.name}}</div>
+					<div class="upload-path">{{file.path}}</div>
+					<div class="progress-bar">
+					    <progress id="progress-bar" value="{{file.percent}}" max="100" ng-hide="file.percent == 100"></progress>
+					    <span ng-show="file.percent == 100">uploaded</span>
+					    <span class="progress-value">{{file.percent}}%</span>
+					</div>
+				</div>  
+			</div>
+		</div>   
+  </div>
+</div>

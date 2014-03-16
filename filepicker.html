@@ -4,7 +4,7 @@
 	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
 	<meta charset="UTF-8">
 	<title>angular-uploader</title>
-	<link rel="stylesheet" href="themes/default/panel.css">
+	<link rel="stylesheet" href="themes/filepicker/panel.css">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<style>
 	.drop-zone {
@@ -34,26 +34,8 @@
 </head>
 <body>
 	<div ng-controller="DemoCtrl">
-		<!-- <div pf-uploader 
-			 data-templateurl="themes/default/panel.html"
-			 data-options = "{{options}}"
-	         data-enable="true">
-	    </div> -->
-	    <div ng-repeat="photo in photos" class="photo">
-	    	<img ng-src="{{photo.thumb}}" alt="">
-	    </div>
-		<h2>browse button</h2>
-		<hr>
-		<button id="pickfiles">select files</button>
-
-		<h2>drag and drop</h2>
-		<hr>
-		<div id="drop-zone" class="drop-zone">
-			<b>drop area </b>
-		</div>
-
 		<div pf-uploader 
-			 data-templateurl="themes/default/panel.html"
+			 data-templateurl="themes/filepicker/panel.html"
 			 data-options = "{{options}}"
 	         data-enable="true">
 	    </div>
@@ -66,7 +48,7 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
 	<script src="http://cdn.jsdelivr.net/plupload/2.1.1/plupload.full.min.js"></script>
 	<script src="js/uploader.js"></script>
-	<script src="themes/default/panel.js"></script>
+	<script src="themes/filepicker/panel.js"></script>
 	<script>
 		var demo = angular.module('demo', ['ui.uploader'])
 		demo.config(['$sceProvider', function($sceProvider) {
@@ -81,10 +63,10 @@
 					mime_type: [
 						{ title: "Image files", extensions: "jpg,jpeg" }
 					],
-					max_file_size: '2mb'
+					max_file_size: '50mb'
 				},
 				multipart_params: {
-					token: "_ttAbVapLhCq533808ffREGDrAb6aKrMhzb72QcK:E3WykW6Vb1Xx6YjCMxxf4pAgRaI=:eyJzY29wZSI6ImhrYnV5cyIsImRlYWRsaW5lIjoxMzk0NzcwMzc3fQ=="
+					token: "_ttAbVapLhCq533808ffREGDrAb6aKrMhzb72QcK:5l8XVI7sZCKJ1CDdjln_rJhkfL8=:eyJzY29wZSI6ImhrYnV5cyIsImRlYWRsaW5lIjoxMzk0MjAzNDMyfQ=="
 				},
 				drop_element: "drop-zone",
 				resize: {
