@@ -11,7 +11,6 @@
 				<div id="file-{{file.id}}" ng-repeat="file in files" ng-click="onItemClick({item:file})" class="upload-item">
 					<div class="upload-preview"></div>
 					<div class="upload-name" title="{{file.name}}">{{file.name}}</div>
-					<div class="upload-path">{{file.path}}</div>
 					<div class="progress-bar">
 					    <progress id="progress-bar" value="{{file.percent}}" max="100" ng-hide="file.percent == 100"></progress>
 					    <span ng-show="file.percent == 100">uploaded</span>
