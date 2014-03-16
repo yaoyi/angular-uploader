@@ -3,13 +3,6 @@ angular-uploader
 
 upload panel for angular.js,  depends on plupload, it is a flexible module, could be easily customized to support different themes of upload panel.
 
-### Demo
-
-```
-  git clone https://github.com/yaoyi/angular-uploader.git
-```
-then open index.html to test the default uploader
-
 ### File Structure
 
 	index.html
