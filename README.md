@@ -14,19 +14,35 @@ upload panel for angular.js,  depends on plupload, it is a flexible module, coul
 
 ### Basic Setup
 
-1.include files
+1.include dependencies
+
+```html
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+```
 
 ```javascript
-<link rel="stylesheet" href="themes/default/panel.css">
-<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
 <script src="http://cdn.jsdelivr.net/plupload/2.1.1/plupload.full.min.js"></script>
+```
+
+2.include upload module
+ 
+```javascript
 <script src="js/uploader.js"></script>
+```
+
+3.include default theme
+
+```html
+<link rel="stylesheet" href="themes/default/panel.css">
+```
+
+```javascript
 <script src="themes/default/panel.js"></script>
 ```
 
-2.add html codes
+4.add html codes
 
 ```html
 <html ng-app="demo">
@@ -88,6 +104,16 @@ or for dynamic upload url,
 uploader.setHandler('BeforeUpload', beforeUpload)
 ```
 then in beforeUpload function, change the up.settings.url
+
+#### FAQ
+
+you may need to disable $sce to make IE7 happy
+
+```javascript
+demo.config(['$sceProvider', function($sceProvider) {
+	$sceProvider.enabled(false);
+}]);
+```
 
 
 ## License
