@@ -69,6 +69,32 @@ demo.controller('DemoCtrl', ['$scope', function($scope){
 }])
 ```
 
+### Options
+
+options can be any option supported by plupload
+
+for example:
+
+```javascript
+ $scope.options = {
+ 	browse_button: ['pickfiles', 'pickfiles1'],
+ 	url : 'your backend upload url',
+	filters: {
+		mime_type: [
+			{ title: "Image files", extensions: "jpg,jpeg,gif,png" },
+		],
+		max_file_size: '50mb'
+	},
+	multipart_params: {
+		token: {your upload token}  
+	},
+	drop_element: ["drop-zone","drop-zone-o"]
+}
+
+```
+
+more options could be found here: http://www.plupload.com/docs/Options
+
 ### Handle Upload Event
 
 handle the upload event in your controller
